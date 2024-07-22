@@ -71,33 +71,36 @@ public class GameList implements IGameList {
      */
     @Override
     public void addToList(String str, Stream<BoardGame> filtered) throws IllegalArgumentException {
-        /**
-         * Collect the filtered stream into List.
-         */
+    /**
+     * Collect the filtered stream into List.
+     */
         List<BoardGame> filteredGames = filtered.collect(Collectors.toList());
-        /**
-         * If the added str equals ADD_ALL(ignores the upper and lower cases)
-         */
+    /**
+     * If the added str equals ADD_ALL(ignores the upper and lower cases)
+     */
         if (str.equalsIgnoreCase(ADD_ALL)) {
             games.addAll(filteredGames);
         } else {
-            /** 
-            * Else use "-" to split the string.
-            * The adjusted for 0-based indexing by reduce 1.
-            */
+        /** 
+         * Else use "-" to split the string.
+         * The adjusted for 0-based indexing by reduce 1.
+         */
             String[] parts = str.split("-");
+            // Parse the start value form the split string and adjust for 0-based indexing.
             int start = Integer.parseInt(parts[0].trim()) - 1;
+            // Parse the end value form the split string and adjust for 0-based indexing.
             int end = Integer.parseInt(parts[1].trim()) - 1;
 
             try {
-                /**
-                 * If there is only one part.
-                 */
+            /**
+             * If there is only one part.
+             */
                 if (parts.length == 1) {
-                    /**
-                     * Both start and end are set to the same index.
+                /**
+                 * Both start and end are set to the same index.
                      */
-                    start = end = Integer.parseInt(parts[0].trim()) - 1;
+                    int index = Integer.parseInt(parts[0].trim()) - 1;
+                    start = end = index;
                 // If there are 2 parts, throw and exception.
                 } else if (parts.length == 2) {
                     start = Integer.parseInt(parts[0].trim()) - 1;
@@ -131,9 +134,9 @@ public class GameList implements IGameList {
         if (str.equalsIgnoreCase(REMOVE_ALL)) {
             games.clear(); // clear the list.
         } else {
-            /**
-             * Split the input string by using "-" 
-             */
+        /**
+         * Split the input string by using "-" 
+         */
             String[] parts = str.split("-");
             int start = Integer.parseInt(parts[0].trim()) - 1;
             int end = Integer.parseInt(parts[1].trim()) - 1;
@@ -141,10 +144,11 @@ public class GameList implements IGameList {
             try { 
                 // If there is only 1 part.
                 if (parts.length == 1) {
-                    /**
-                     * set start and end to the same index.
-                     */
-                    start = end = Integer.parseInt(parts[0].trim()) - 1;
+                /**
+                 * set start and end to the same index.
+                 */
+                    int index= Integer.parseInt(parts[0].trim()) - 1;
+                    start = end = index;
                     // If there are 2 parts, set start and end to the respective indices.
                 } else if (parts.length == 2) {
                     start = Integer.parseInt(parts[0].trim()) - 1;
