@@ -135,7 +135,8 @@ public class GameList implements IGameList {
              * Split the input string by using "-" 
              */
             String[] parts = str.split("-");
-            int start, end;
+            int start = Integer.parseInt(parts[0].trim()) - 1;
+            int end = Integer.parseInt(parts[1].trim()) - 1;
 
             try { 
                 // If there is only 1 part.
