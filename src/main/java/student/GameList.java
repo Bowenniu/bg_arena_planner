@@ -12,7 +12,9 @@ import java.util.stream.Collectors;
  *  GameList.java implements IGameList interface to manage the list of board games.
  */
 public class GameList implements IGameList {
-    // Create a list to store the board games.
+    /**
+     * Create a list to store the board games.
+     */
     private List<BoardGame> games;
     /**
      * Constructor for the GameList.
@@ -60,7 +62,9 @@ public class GameList implements IGameList {
             System.err.println("Error saving game list to file: " + e.getMessage());
         }
     }
-    // Define a constant string to represent the command to add elements.
+    /**
+     * Define a constant string to represent the command to add elements.
+     */
     private static final String ADD_ALL = "ADD_ALL";
     // Override addToList method, to add elements into the list.
     @Override
@@ -72,13 +76,20 @@ public class GameList implements IGameList {
             // Add all elements in filteredGames into the game List.
             games.addAll(filteredGames);
         } else {
-            // Else use "-" to split the string.
+            /** 
+             * Else use "-" to split the string.
+             */
             String[] parts = str.split("-");
             int start, end;
 
             try {
-                // If there is only one part, then both start and end are set to the same index.
+                /**
+                 * If there is only one part.
+                 */
                 if (parts.length == 1) {
+                    /**
+                     * Both start and end are set to the same index.
+                     */
                     start = end = Integer.parseInt(parts[0].trim()) - 1;
                 // If there are 2 parts, throw and exception.
                 } else if (parts.length == 2) {
@@ -102,7 +113,9 @@ public class GameList implements IGameList {
             }
         }
     }
-    // Define a constant string to represent the command to remove all elements.
+    /**
+     * Define a constant string to represent the command to remove all elements.
+     */
     private static final String REMOVE_ALL = "REMOVE_ALL";
     // Override the removeFromList method to remove the elements from list.
     @Override
@@ -111,13 +124,18 @@ public class GameList implements IGameList {
         if (str.equalsIgnoreCase(REMOVE_ALL)) {
             games.clear(); // clear the list.
         } else {
-            // Split the input string by using "-" 
+            /**
+             * Split the input string by using "-" 
+             */
             String[] parts = str.split("-");
             int start, end;
 
             try { 
-                // If there is only 1 part, set start and end to the same index.
+                // If there is only 1 part.
                 if (parts.length == 1) {
+                    /**
+                     * set start and end to the same index.
+                     */
                     start = end = Integer.parseInt(parts[0].trim()) - 1;
                     // If there are 2 parts, set start and end to the respective indices.
                 } else if (parts.length == 2) {

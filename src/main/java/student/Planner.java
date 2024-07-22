@@ -9,6 +9,9 @@ import java.util.Comparator;
  */
 
 public class Planner implements IPlanner { 
+    /**
+     * The collection of board games that the planner will manage and filter.
+     */
     private Set<BoardGame> games;
     /**
      * Build Planner with a set of board games.
