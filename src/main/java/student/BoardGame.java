@@ -256,11 +256,18 @@ public class BoardGame {
         System.out.println(bg.equals(bg3) + " " + String.valueOf(bg.hashCode() == bg3.hashCode()));
 
     }
+    /**
+     *  Set whether the board game is matched in the filter.
+     * @param matched true is the game is matched, otherwise, it is false.
+     */
 
     public void setMatched(boolean matched) {
         this.matched = matched;
     }
-
+    /**
+     * Check if the board game is matched in the current filter.
+     * @return true if the board game is matched, else, false.
+     */
     public boolean isMatched() {
         return matched;
     }  
