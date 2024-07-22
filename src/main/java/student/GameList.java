@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Stream;
 import java.util.ArrayList; 
 import java.util.stream.Collectors;
@@ -103,7 +102,8 @@ public class GameList implements IGameList {
                 if (parts.length == 1) {
                     // Both start and end are set to the same index.
                     int index = Integer.parseInt(parts[0].trim()) - 1;
-                    start = end = index;
+                    start = index;
+                    end = index;
                 // If there are 2 parts, parse start and end values.
                 } else if (parts.length == 2) {
                     start = Integer.parseInt(parts[0].trim()) - 1;
@@ -154,7 +154,8 @@ public class GameList implements IGameList {
                 if (parts.length == 1) {
                     // Set start and end to the same index.
                     int index = Integer.parseInt(parts[0].trim()) - 1;
-                    start = end = index;
+                    start = index;
+                    end = index;
                 // If there are 2 parts, parse start and end values.
                 } else if (parts.length == 2) {
                     start = Integer.parseInt(parts[0].trim()) - 1;
