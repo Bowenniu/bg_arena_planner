@@ -66,21 +66,28 @@ public class GameList implements IGameList {
      * Define a constant string to represent the command to add elements.
      */
     private static final String ADD_ALL = "ADD_ALL";
-    // Override addToList method, to add elements into the list.
+    /**
+     * Override addToList method, to add elements into the list.
+     */
     @Override
     public void addToList(String str, Stream<BoardGame> filtered) throws IllegalArgumentException {
-        // Collect the filtered stream into List.
+        /**
+         * Collect the filtered stream into List.
+         */
         List<BoardGame> filteredGames = filtered.collect(Collectors.toList());
-        // If the added str equals ADD_ALL(ignores the upper and lower cases)
+        /**
+         * If the added str equals ADD_ALL(ignores the upper and lower cases)
+         */
         if (str.equalsIgnoreCase(ADD_ALL)) {
-            // Add all elements in filteredGames into the game List.
             games.addAll(filteredGames);
         } else {
             /** 
-             * Else use "-" to split the string.
-             */
+            * Else use "-" to split the string.
+            * The adjusted for 0-based indexing by reduce 1.
+            */
             String[] parts = str.split("-");
-            int start, end;
+            int start = Integer.parseInt(parts[0].trim()) - 1;
+            int end = Integer.parseInt(parts[1].trim()) - 1;
 
             try {
                 /**
