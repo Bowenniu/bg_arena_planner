@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * there are extra commas like in the name).
  * 
  */
-public final class GamesLoader {
+public final class GamesLoader { 
     /** Standard csv delim. */
     private static final String DELIMITER = ",";
 

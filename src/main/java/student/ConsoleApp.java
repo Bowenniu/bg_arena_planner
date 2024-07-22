@@ -346,7 +346,7 @@ public class ConsoleApp {
          * using the base resources location as the root.
          */
         static {
-            try {
+            try { 
                 CTEXT.loadFromXML(ConsoleApp.class.getResourceAsStream("/console.properties"));
             } catch (Exception e) {
                 e.printStackTrace();

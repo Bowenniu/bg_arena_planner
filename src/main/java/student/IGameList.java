@@ -20,7 +20,7 @@ import java.util.List;
  * any method
  * that returns a list of games or strings.
  */
-public interface IGameList {
+public interface IGameList { 
     /**
      * Default key word to use to add or remove an entire filter from/to the list.
      */

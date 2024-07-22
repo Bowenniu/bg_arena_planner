@@ -1,6 +1,5 @@
 package student;
 
-
 import java.util.List;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -11,7 +10,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * This class is considered immutable, as every value is both final, and can only be accessed
  * through getters.
  */
-public class BoardGame {
+public class BoardGame { 
     /** Name of the board game. */
     private final String name;
     /** Unique identifier of the board game. */
@@ -32,6 +31,8 @@ public class BoardGame {
     private final double averageRating;
     /** Year the game was published. */
     private final int yearPublished;
+    /** Whether the game matches the current filter. */
+    private boolean matched;
 
     /**
      * Constructor for the BoardGame object.
@@ -50,7 +51,7 @@ public class BoardGame {
     public BoardGame(String name, int id, int minPlayers, int maxPlayers, int minPlayTime,
             int maxPlayTime, double difficulty, int rank, double averageRating, int yearPublished) {
         this.name = name;
-        this.id = id; // purposefully kept hidden, so not used in filters or sorting
+        this.id = id;
         this.minPlayers = minPlayers;
         this.maxPlayers = maxPlayers;
         this.maxPlayTime = maxPlayTime;
@@ -59,6 +60,7 @@ public class BoardGame {
         this.rank = rank;
         this.averageRating = averageRating;
         this.yearPublished = yearPublished;
+        this.matched = false;
     }
 
     /**
@@ -234,7 +236,6 @@ public class BoardGame {
                         "rank", "averageRating", "yearPublished"));
     }
 
-
     /**
      * Simple main we used for testing.
      * 
@@ -256,4 +257,11 @@ public class BoardGame {
 
     }
 
+    public void setMatched(boolean matched) {
+        this.matched = matched;
+    }
+
+    public boolean isMatched() {
+        return matched;
+    }  
 }

@@ -10,7 +10,7 @@ package student;
  * Throughout your program, you will use GameData when parsing anything
  * that is associated with column names (filter) and sorting.
  */
-public enum GameData {
+public enum GameData { 
     /**
      * Enums matching CODE(cvsname) pattern.
      * 

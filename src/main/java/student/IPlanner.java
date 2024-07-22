@@ -16,7 +16,7 @@ import java.util.stream.Stream;
  * should be applied to the results of the minPlayers filter unless reset is called between.
  * 
  */
-public interface IPlanner {
+public interface IPlanner { 
 
     /**
      * 

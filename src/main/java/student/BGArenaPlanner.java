@@ -3,7 +3,7 @@ package student;
 
 /**
  * Main entry point for the program.
- */
+ */ 
 public final class BGArenaPlanner {
     /** default location of collection - relative to the resources directory. */
     private static final String DEFAULT_COLLECTION = "/collection.csv";
